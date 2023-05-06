@@ -9,8 +9,7 @@ import shutil
 # apply the name in path_work
 # run the programm
 
-path_unzip = 'D:\\OneDrive\\Informatik\\Tutor_SS23\\ESoft\\Ass3\\Zip'
-# path_unzip = 'D:\\OneDrive\\Informatik\\Tutor_SS23\\AlgoDat1_SS23\\Ass2\\Zip'
+path_unzip = 'D:\\The\\Path\\to\\your\\folder\\Zip'
 path_work = path_unzip + '\\ass3'
 dest_folder = path_work + '_zips'
 
@@ -24,7 +23,7 @@ def unzip_and_remove_space(path):
                 zipf.extractall(os.path.join(path, os.path.splitext(filename)[0]))
 
             for extracted_filename in os.listdir(os.path.join(path, os.path.splitext(filename)[0])):
-                new_filename = extracted_filename.replace(' ', '_')
+                new_filename = extracted_filename.replace(' ', '_').replace('-', '')
                 os.rename(os.path.join(path, os.path.splitext(filename)[0], extracted_filename),
                           os.path.join(path, os.path.splitext(filename)[0], new_filename))
 
