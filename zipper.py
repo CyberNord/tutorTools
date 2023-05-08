@@ -3,7 +3,7 @@ import zipfile
 
 # zippt alle files in einem folder
 
-path = 'D:\\OneDrive\\Informatik\\Tutor_SS23\\AlgoDat1_SS23\\Ass2\\ass2'
+path = 'D:\\The\\Path\\to\\your\\folder\\Zip'
 
 print("Starting loop")
 for foldername in os.listdir(path):
