@@ -42,12 +42,16 @@ class MinHeap:
 
 def split_number(n):
     num_str = str(n)
+    while len(num_str) < 8:
+        num_str = "0" + num_str
     nr1 = int(num_str[:3])  # Digits 0, 1, 2
     nr2 = int(num_str[3:5])  # Digits 3, 4
     nr3 = int(num_str[5:7])  # Digits 5, 6
     nr4 = int(num_str[7])  # Last digit
+    print("k" + num_str + ": n1=" + str(nr1) + ", n2=" + str(nr2) + ", n3=" + str(nr3) + ", n4=" + str(nr4))
 
     return nr1, nr2, nr3, nr4
+
 
 ###################################################################################
 heap = MinHeap()
