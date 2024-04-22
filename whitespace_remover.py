@@ -8,7 +8,7 @@ def replace_whitespace_with_underscore(directory):
 
     for folder in folders:
         old_name = os.path.join(directory, folder)
-        new_name = os.path.join(directory, folder.replace(' ', '_'))
+        new_name = os.path.join(directory, folder.replace(' ', '_').replace('-', ''))
         os.rename(old_name, new_name)
 
 
