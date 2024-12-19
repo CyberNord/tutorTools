@@ -29,7 +29,17 @@ def clean_submissions(main_dir):
 
 
 if __name__ == "__main__":
-
     main_directory = "D:\\PATH\\TO\\FOLDER"
     extract_file = "NAME_OF_FILE"
-    clean_submissions(main_directory)
+
+    # Warning message and confirmation
+    print("WARNING: This process will delete files and folders permanently.")
+    print("Only the file '" +str(extract_file)+ "' will be retained in each student's folder.")
+    print("Type 'DELETE' to confirm and start the cleanup process.")
+
+    user_input = input("Enter your confirmation: ").strip()
+
+    if user_input == "DELETE":
+        clean_submissions(main_directory)
+    else:
+        print("Cleanup process aborted.")
