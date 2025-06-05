@@ -1,15 +1,29 @@
 import os
+import unicodedata
+
+# This little script will remove all whitespace from a folder and its subfolders.
+# Additionally, it will replace all special characters.
 
 path = 'C:\\PATH\\TO\\DIRECTORY\\FOLDER\\FOLDER\\'
 
+def remove_accents(input_str):
+    nfkd_form = unicodedata.normalize('NFKD', input_str)
+    return ''.join([c for c in nfkd_form if not unicodedata.combining(c)])
 
 def replace_whitespace_with_underscore(directory):
     folders = [f for f in os.listdir(directory) if os.path.isdir(os.path.join(directory, f))]
 
     for folder in folders:
         old_name = os.path.join(directory, folder)
-        new_name = os.path.join(directory, folder.replace(' ', '_').replace('-', ''))
-        os.rename(old_name, new_name)
-
-
+        cleaned_name = remove_accents(folder)
+        new_name = os.path.join(directory, cleaned_name
+                            .replace(' ', '_')
+                            .replace('-', '')
+                            .replace('`', '')
+                            .replace('´', '')
+                            .replace('\'', ''))
+        
 replace_whitespace_with_underscore(path)
+
+# for future me
+# Not working currently on the following special Characters: Š
